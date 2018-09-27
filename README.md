@@ -27,6 +27,9 @@ input to the analysis pipeline; optionally accepting an appropriate file.
 
 ## Install
 
-`library(devtools)`
-`install_github("audrina/pcclust")`
-`library(pcclust)`
+````
+library(devtools)
+install_github("audrina/pcclust")
+library(pcclust)
+````
+
