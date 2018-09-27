@@ -1,0 +1,14 @@
+Package: pcclust
+Type: Package
+Title: PCA Analysis and Visualization for Clustering
+Version: 0.1.0
+Author: Audrina Zhou
+Maintainer: Audrina Zhou <audrina.zhou@mail.utoronto.ca>
+Description: PCA analysis and visualization package tailored for optimizing downstream 
+             clustering for any numeric multidimensional data matrix or data frame.
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    testthat
+RoxygenNote: 6.1.0.9000
