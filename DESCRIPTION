@@ -9,6 +9,16 @@ Description: PCA analysis and visualization package tailored for optimizing down
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+    ggplot2,
+    rio,
+    plotrix,
+    rgl,
+    car,
+    scales,
+    data.table,
+    utils,
+    mclust
 Suggests:
     testthat
 RoxygenNote: 6.1.0.9000
