@@ -26,6 +26,10 @@ input to the analysis pipeline; optionally accepting an appropriate file.
 To execute the pipeline in sequence, follow these steps (_uses the Iris dataset as a PoC_):
 
 ````
+library(devtools)
+install_github("audrina/pcclust")
+library(pcclust)
+
 # 1. validate and load data
 irisCSV <- system.file("extdata", "iris.csv", package = "pcclust")
 data <- validateAndLoadData(irisCSV, isFile = TRUE)
@@ -47,7 +51,9 @@ clusters <- optimalModel$classification # predictions made by optimal model
 
 # 4. generate baseline visualizations
 
-out <- visualizePCA(bestPCSet, clusters, pcObj, outDir = ".") # returns a path to the ouput folder "pcclust_visualization"
+# returns a path to the ouput folder "pcclust_visualization"
+# outDir is the current working directory by default.
+out <- visualizePCA(bestPCSet, clusters, pcObj, outDir = ".") 
 
 # 5. query specific points from the optimal PCA plot "optimalPC.tiff" in "pcclust_visualization"
 
@@ -57,7 +63,8 @@ y <- -0.3
 x <- 0
 y <- 0
 
-# NOTE: pcclust will always find the nearest neighbor, so queries that are out of range will simply return the max/min for the respective dimensions.
+# NOTE: pcclust will always find the nearest neighbor, so queries that are 
+out of range will simply return the max/min for the respective dimensions.
 
 x <- 100 
 y <- -100
