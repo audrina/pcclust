@@ -43,8 +43,6 @@ iterationResults <- executePCFiltering(pcData)
 
 bestPCSet <- iterationResults[[length(iterationResults)]] # optimal set corresponds to last iteration
 
-clusterResults <- evaluateClusterQuality(bestPCSet) # uses BIC and loglikelihood
-
 optimalModel <- determineOptimalModel(bestPCSet)
 
 clusters <- optimalModel$classification # predictions made by optimal model
