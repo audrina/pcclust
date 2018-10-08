@@ -4,12 +4,10 @@
 \alias{determineOptimalModel}
 \title{Determine Optimal GMM}
 \usage{
-determineOptimalModel(bestPCSet, models)
+determineOptimalModel(bestPCSet)
 }
 \arguments{
 \item{bestPCSet}{a matrix whose columns contain the optimal principal components.}
-
-\item{models}{character vector of length 3, where each element has the form "<model>,<num components>"}
 }
 \value{
 summary of output from mclust::mclustBIC(<bestPCSet>) computed with optimal model parameters.

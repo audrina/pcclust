@@ -685,7 +685,7 @@ iterationResults <- executePCFiltering(pcData)
 
 bestPCSet <- iterationResults[[length(iterationResults)]]
 
-clusterResults <- evaluateClusterQuality(bestPCSet)
+# clusterResults <- evaluateClusterQuality(bestPCSet)
 
 # use log likelihood criterion to select optimal model for best PC set
 

@@ -23,6 +23,8 @@
 #' clusters <- optimalModel$classification
 #' out <- visualizePCA(bestPCSet, clusters, pcObj)
 visualizePCA <- function(bestPCSet, clusters, pcObj, outDir = ".") {
+  cat("Generating baseline visualizations......\n")
+
   outPath <- file.path(outDir, "pcclust_visualization")
   if (!dir.exists(outPath)) {
     cmd <- sprintf("mkdir %s", outPath)
@@ -92,5 +94,7 @@ visualizePCA <- function(bestPCSet, clusters, pcObj, outDir = ".") {
   cat(sprintf('Wrote "varianceContribution.tiff" to %s\n', outPath))
 
   setwd("..")
+
+  cat("Visualizations complete!\n")
   return(outPath)
 }

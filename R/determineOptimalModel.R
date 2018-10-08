@@ -2,7 +2,6 @@
 #'
 #' Use log likelihood criterion to select optimal model for best PC set.
 #' @param bestPCSet a matrix whose columns contain the optimal principal components.
-#' @param models character vector of length 3, where each element has the form "<model>,<num components>"
 #' @return summary of output from mclust::mclustBIC(<bestPCSet>) computed with optimal model parameters.
 #' @seealso \code{\link[mclust]{mclustBIC}}
 #' @export
@@ -14,9 +13,11 @@
 #' bestPCSet <- iterationResults[[length(iterationResults)]]
 #' clusterResults <- evaluateClusterQuality(bestPCSet)
 #' optimalModel <- determineOptimalModel(bestPCSet)
-determineOptimalModel <- function(bestPCSet, models) {
+determineOptimalModel <- function(bestPCSet) {
   modelInfo <- initBuffer(3)
   loglikelihood <- initBuffer(3)
+
+  cat("Evaluating BIC and log likelihood for top 3 models...........\n")
 
   pcBIC <- mclust::mclustBIC(bestPCSet)
 
@@ -34,5 +35,8 @@ determineOptimalModel <- function(bestPCSet, models) {
     loglikelihood(info$loglik)
   }
   idxOptimalLoglik <- which(loglikelihood() == max(unlist(loglikelihood())))
+
+  cat("Optimal model found!\n")
+
   return(modelInfo()[[idxOptimalLoglik]])
 }

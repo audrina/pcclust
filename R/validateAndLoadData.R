@@ -75,5 +75,6 @@ validateAndLoadData <- function(data, isFile = FALSE, scaled = TRUE) {
     scaledMatrix <- scale(df)
   }
 
+  cat(sprintf("Validation successful: loaded %s into a scaled matrix\n", data))
   return(scaledMatrix)
 }

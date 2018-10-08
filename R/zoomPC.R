@@ -28,6 +28,8 @@
 #' y <- -0.3
 #' zoomPC(x, y, pcData, bestPCSet, clusters, iterationResults, out)
 zoomPC <- function(x, y, pcData, bestPCSet, clusters, iterationResults, outPath) {
+  cat(sprintf("Your query point is (%.2f,%.2f)\n", x, y))
+
   currDir <- getwd()
   # 1. Given a pair of x, y coordinates that query a region on the PCA plot of the bestPCSet,
   #    find the associated ROW in the matrix (i.e. the sample) that is closest to this region.
@@ -60,6 +62,8 @@ zoomPC <- function(x, y, pcData, bestPCSet, clusters, iterationResults, outPath)
 
   # 2. Annotate the nearest neighbor to the selected query point on the PCA plot
   qLabel <- sprintf("QUERY: (%.2f,%.2f)", dfBestPC[rowIdx, ][1], dfBestPC[rowIdx, ][2])
+
+  cat(sprintf("The nearest neighbor to your query is %s\n", qLabel))
 
   setwd(outPath)
   cat(sprintf("Generating optimal PCA plot annotated with %s......\n", qLabel))
@@ -100,6 +104,8 @@ zoomPC <- function(x, y, pcData, bestPCSet, clusters, iterationResults, outPath)
   # ouput interactive graphic that highlights query point from optimized 2D plot in 3D space
   # i.e. plot the second-last iteration from executePCFiltering; adding one component back in.
 
+  cat("Generating interactive 3D PCA plot\n")
+
   sel <- colnames(iterationResults[[(length(iterationResults) - 1)]])
   pcData[, sel]
 
@@ -122,4 +128,6 @@ zoomPC <- function(x, y, pcData, bestPCSet, clusters, iterationResults, outPath)
               texts=queryLabel,
               cex=0.7,
               pos=3)
+
+  cat("Visualizations complete!\n")
 }

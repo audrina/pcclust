@@ -1,6 +1,7 @@
 #generatePCSubsets.R
 #evaluateClusterQuality.R
-#executePCFiltering
+#executePCFiltering.R
+#determineOptimalModel.R
 
 context("Generate PC Subsets and evaluate clusters")
 

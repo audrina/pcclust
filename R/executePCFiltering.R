@@ -23,6 +23,8 @@ executePCFiltering <- function(pcData) {
   #     list of iteration results from PCA filtering, where each iteation has one less PC.
   #     List elements are PCA matrices. Last entry in the list corresponds to the top 2 PCs for clustering.
 
+  cat("Running PC filtering ...............\n")
+
   nIterations <- ncol(pcData) - 2
 
   # base case for indirect recursion on ambiguous subsets: stop iterations once left with top 2 PCs
@@ -34,6 +36,7 @@ executePCFiltering <- function(pcData) {
   selIn <- pcData
 
   for (iter in 1:nIterations) {
+    cat(sprintf("ITERATION %d\n", iter))
     subsets <- generatePCSubsets(selIn)
     subsetsClusterQuality <- lapply(subsets, evaluateClusterQuality)
     idxOptimalSubset <- determineOptimalSubset(subsetsClusterQuality)
@@ -42,5 +45,6 @@ executePCFiltering <- function(pcData) {
     iterations(sel)
     selIn <- sel
   }
+  cat("PC filtering complete!\n")
   return(iterations())
 }
