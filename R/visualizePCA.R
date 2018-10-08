@@ -44,7 +44,7 @@ visualizePCA <- function(bestPCSet, clusters, pcObj, outDir = ".") {
   # PCA plot of best 2 PCs
   cat("Generating optimal PCA plot......\n")
   grDevices::tiff('optimalPC.tiff', units="in", width=10, height=10, res=300)
-  pc <- ggplot(dfBestPC, aes_string(x=dim1Name, y=dim2Name))
+  pc <- ggplot2::ggplot(dfBestPC, ggplot2::aes_string(x=dim1Name, y=dim2Name))
 
   pcScatter <- pc +
     aes(color=`clusters`, shape=`clusters`, alpha=0.8) +
@@ -79,7 +79,7 @@ visualizePCA <- function(bestPCSet, clusters, pcObj, outDir = ".") {
         labels=scales::percent(varianceContribution),
         explode=0.1,
         main="Overall variance contribution from each PC ",
-        col=rainbow(length(pc)),
+        col=rainbow(ncol(pcObj$x)),
         labelcex=0.7,
         theta=0.9)
   graphics::legend(1.1, 1.05,
