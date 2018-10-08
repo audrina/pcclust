@@ -6,7 +6,7 @@ Pcclust is a versatile and comprehensive R package for PCA analysis and visualiz
 
 The analysis pipeline employs 2 metrics to quantify the cluster quality that is obtained when using different combinations of PCs. Using the [R mclust package](https://cran.r-project.org/web/packages/mclust/index.html) it calculates Bayesian information criterion (BIC) and maximum log likelihood for Gaussian mixture models (GMM) in order to determine the subset of PCs containing the most significant cluster structure.
 
-The comprehensive visualization component of the pipeline then produces several informative PCA graphics, using the optimal choice of PCs for clustering as determined in the analysis stages of the pipeline, and include the following:
+The comprehensive visualization component of the pipeline then produces several informative PCA graphics, using the optimal choice of PCs for clustering as determined in the analysis stages of the pipeline, and includes the following:
 * Baseline PCA visualizations: a standard 2-component PCA plot, density plot, and variance contribution pie chart.
 * Additional functionality enabling one to "zoom-in" on a specific query point which will produce sample-specific metadata:
   * A standard 2-component PCA plot labeled with the query point.
@@ -19,7 +19,7 @@ The comprehensive visualization component of the pipeline then produces several 
 ## General usage
 
 Pcclust will accept any numeric multidimensional matrix or data frame as
-input to the analysis pipeline; optionally accepting an appropriate file.
+input to the analysis pipeline; optionally accepting an appropriate file that is in a format supported by rio.
 
 ## Pipeline workflow instructions
 
@@ -64,7 +64,7 @@ x <- 0
 y <- 0
 
 # NOTE: pcclust will always find the nearest neighbor, so queries that are 
-out of range will simply return the max/min for the respective dimensions.
+# out of range will simply return the max/min for the respective dimensions.
 
 x <- 100 
 y <- -100
@@ -80,4 +80,12 @@ library(devtools)
 install_github("audrina/pcclust")
 library(pcclust)
 ````
+
+## Sample visualizations
+
+![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/2/27/Screen_Shot_2018-10-07_at_9.29.00_PM.png)
+![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/4/48/Screen_Shot_2018-10-07_at_9.29.27_PM.png)
+![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/2/26/Screen_Shot_2018-10-07_at_9.29.48_PM.png)
+![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/0/07/Screen_Shot_2018-10-07_at_9.30.06_PM.png)
+![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/7/79/Screen_Shot_2018-10-07_at_7.26.31_PM.png)
 
