@@ -85,7 +85,7 @@ library(pcclust)
 
 ![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/2/27/Screen_Shot_2018-10-07_at_9.29.00_PM.png)
 ![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/4/48/Screen_Shot_2018-10-07_at_9.29.27_PM.png)
-![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/2/26/Screen_Shot_2018-10-07_at_9.29.48_PM.png)
+![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/c/c4/Screen_Shot_2018-10-07_at_10.18.28_PM.png)
 ![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/0/07/Screen_Shot_2018-10-07_at_9.30.06_PM.png)
 ![alt text](http://steipe.biochemistry.utoronto.ca/abc/students/images/7/79/Screen_Shot_2018-10-07_at_7.26.31_PM.png)
 
