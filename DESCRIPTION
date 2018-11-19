@@ -18,7 +18,8 @@ Imports:
     scales,
     data.table,
     utils,
-    mclust
+    mclust,
+    shiny
 Suggests:
     testthat
 RoxygenNote: 6.1.0.9000

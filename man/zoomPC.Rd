@@ -22,7 +22,7 @@ zoomPC(x, y, pcData, bestPCSet, clusters, iterationResults, outPath)
 \item{outPath}{path to ouput directory where pcclust_visualization folder was generated.}
 }
 \value{
-NULL. Outputs high quality .tiff files in pcclust_visualization for each of the 2 plots.
+NULL. Outputs high quality .svg files in pcclust_visualization for each of the 2 plots.
 }
 \description{
 Supporting PCA visualizations and sample-specific metadata including standard 2-component PCA plot labeled with query, a diverging lollipop chart showing the PC breakdown for the query, and an interactive PCA plot showing the location of the query in 3D space.
@@ -44,7 +44,7 @@ zoomPC(x, y, pcData, bestPCSet, clusters, iterationResults, out)
 \seealso{
 \code{\link[ggplot2]{ggplot}}
 
-\code{\link[grDevices]{tiff}}
+\code{\link[grDevices]{svg}}
 
 \code{\link[rgl]{plot3d}}
 
