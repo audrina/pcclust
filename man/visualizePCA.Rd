@@ -16,7 +16,7 @@ visualizePCA(bestPCSet, clusters, pcObj, outDir = ".")
 \item{outDir}{path to ouput directory where pcclust_visualization folder will be generated. Defaults to current working directory.}
 }
 \value{
-path to pcclust_visualization output directory. Outputs high quality .tiff files for each of the 3 plots.
+path to pcclust_visualization output directory. Outputs high quality .svg files for each of the 3 plots.
 }
 \description{
 Baseline PCA visualizations including standard 2-component PCA plot, density plot, and variance contribution pie chart.
@@ -35,5 +35,5 @@ out <- visualizePCA(bestPCSet, clusters, pcObj)
 \seealso{
 \code{\link[ggplot2]{ggplot}}
 
-\code{\link[grDevices]{tiff}}
+\code{\link[grDevices]{svg}}
 }

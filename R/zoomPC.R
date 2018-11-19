@@ -8,9 +8,9 @@
 #' @param clusters vector of predicted labels
 #' @param iterationResults list of iteration results from PCA filtering, where each iteation has one less PC. List elements are PCA matrices. Last entry in the list corresponds to the top 2 PCs for clustering.
 #' @param outPath path to ouput directory where pcclust_visualization folder was generated.
-#' @return NULL. Outputs high quality .tiff files in pcclust_visualization for each of the 2 plots.
+#' @return NULL. Outputs high quality .svg files in pcclust_visualization for each of the 2 plots.
 #' @seealso \code{\link[ggplot2]{ggplot}}
-#' @seealso \code{\link[grDevices]{tiff}}
+#' @seealso \code{\link[grDevices]{svg}}
 #' @seealso \code{\link[rgl]{plot3d}}
 #' @seealso \code{\link[rgl]{text3d}}
 #' @export
@@ -67,7 +67,7 @@ zoomPC <- function(x, y, pcData, bestPCSet, clusters, iterationResults, outPath)
 
   setwd(outPath)
   cat(sprintf("Generating optimal PCA plot annotated with %s......\n", qLabel))
-  grDevices::tiff('optimalPCQuery.tiff', units="in", width=10, height=10, res=300)
+  grDevices::svg('optimalPCQuery.svg', width=10, height=10)
   print(
     ggplot(dfBestPC, aes_string(x=dim1Name, y=dim2Name)) +
       aes(color=`clusters`, shape=`clusters`, alpha=0.8) +
@@ -78,14 +78,14 @@ zoomPC <- function(x, y, pcData, bestPCSet, clusters, iterationResults, outPath)
       stat_ellipse() +
       geom_text(data=dfBestPC[rowIdx, ], color="red", size=3, label=qLabel, alpha=1))
   grDevices::dev.off()
-  cat(sprintf('Wrote "optimalPCQuery.tiff" to %s\n', outPath))
+  cat(sprintf('Wrote "optimalPCQuery.svg" to %s\n', outPath))
 
   # 3. Output an additional graphic that shows the PC breakdown
   #    for the query point over the complete set of PCs.
 
   # Diverging lollipop chart
   cat(sprintf("Generating diverging lollipop chart for %s......\n", qLabel))
-  grDevices::tiff('divLollipopQuery.tiff', units="in", width=10, height=10, res=300)
+  grDevices::svg('divLollipopQuery.svg', width=10, height=10)
   pcDf <- data.frame(PC=colnames(pcData), sample_value=round(pcData[rowIdx, ], 2))
   print(ggplot(pcDf, aes(x=`sample_value`, y=PC, label=`sample_value`)) +
           geom_point(stat='identity', fill="blue", size=10)  +
@@ -98,7 +98,7 @@ zoomPC <- function(x, y, pcData, bestPCSet, clusters, iterationResults, outPath)
           labs(title=sprintf("Diverging lollipop chart of PC breakdown for %s", qLabel),
                subtitle="Value of queried sample in terms of the PCs: Lollipop"))
   grDevices::dev.off()
-  cat(sprintf('Wrote "divLollipopQuery.tiff" to %s\n', outPath))
+  cat(sprintf('Wrote "divLollipopQuery.svg" to %s\n', outPath))
   setwd(currDir)
 
   # ouput interactive graphic that highlights query point from optimized 2D plot in 3D space
