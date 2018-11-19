@@ -75,7 +75,6 @@ myServer <- function(input, output) {
 
     vals$qLabel <- sprintf("QUERY: (%.2f,%.2f)", bestPCSet[vals$rowIdx, ][1], bestPCSet[vals$rowIdx, ][2])
 
-
   })
 
   output$pca <- renderPlot({
