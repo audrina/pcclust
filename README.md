@@ -53,7 +53,10 @@ clusters <- optimalModel$classification # predictions made by optimal model
 # outDir is the current working directory by default.
 out <- visualizePCA(bestPCSet, clusters, pcObj, outDir = ".") 
 
-# 5. query specific points from the optimal PCA plot "optimalPC.tiff" in "pcclust_visualization"
+# 5. query specific points from the optimal PCA plot "optimalPC.svg" in "pcclust_visualization"
+
+# NEW: interactive querying 
+runPcclustApp()
 
 x <- 0.5
 y <- -0.3
